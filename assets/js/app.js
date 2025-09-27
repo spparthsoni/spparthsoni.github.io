@@ -137,10 +137,10 @@ let footer = $(`
              <div class="form-header">
                 <h6 class="display">Get in Touch</h6>
               </div>
-                <form name="form1" action="https://formcarry.com/s/YOUR_FORM_ID" method="POST" accept-charset="UTF-8" >
-                  <input id="name" type="text" name="name" placeholder="Your Name" required/>
-                  <input id="email" type="email" name="email" placeholder="Email Address" required/>                  
-                  <textarea id="textArea" name="message" placeholder="Type your Message" required></textarea>
+                <form name="form1" action="https://formcarry.com/s/cjjU36QgLb-" method="POST" accept-charset="UTF-8" >
+                  <input id="fc-generated-1-name" type="text" name="name" placeholder="Your Name" required/>
+                  <input id="fc-generated-1-email" type="email" name="email" placeholder="Email Address" required/>                  
+                  <textarea id="fc-generated-1-message" name="message" placeholder="Type your Message" required></textarea>
               
                   <div id="main">
                     <button id="lnch" type="button" value="Send" >Send</button>
@@ -439,9 +439,9 @@ $(window).on("load", function () {
 
 
 $(function submitAnimation() {
-  const name = document.querySelector("#name")
-  const emailAdress = document.querySelector("#email")
-  const text = document.querySelector("#textArea")
+  const name = document.querySelector("#fc-generated-1-name")
+  const emailAdress = document.querySelector("#fc-generated-1-email")
+  const text = document.querySelector("#fc-generated-1-message")
   const emailPattern = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
 
   $("#lnch").on("click", function () {
