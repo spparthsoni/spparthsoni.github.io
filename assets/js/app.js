@@ -492,11 +492,17 @@ $(function submitAnimation() {
             $("#lnch_btn").removeClass("launching launched");
           } else {
             swal("Error!", "There was a problem sending your message. Please try again.", "error");
+            // Reset button animation
+            $("#lnch").removeClass("launching launched").text("Send");
+            $("#lnch_btn").removeClass("launching launched");
           }
         })
         .catch(error => {
           console.error('Error:', error);
           swal("Error!", "There was a problem sending your message. Please try again.", "error");
+          // Reset button animation
+          $("#lnch").removeClass("launching launched").text("Send");
+          $("#lnch_btn").removeClass("launching launched");
         });
       }, 2200);
     }
