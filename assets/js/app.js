@@ -137,7 +137,7 @@ let footer = $(`
              <div class="form-header">
                 <h6 class="display">Get in Touch</h6>
               </div>
-                <form name="form1" action="https://formcarry.com/s/BywEPAJNb" method="POST" accept-charset="UTF-8" >
+                <form name="form1" action="https://formcarry.com/s/YOUR_FORM_ID" method="POST" accept-charset="UTF-8" >
                   <input id="name" type="text" name="name" placeholder="Your Name" required/>
                   <input id="email" type="email" name="email" placeholder="Email Address" required/>                  
                   <textarea id="textArea" name="message" placeholder="Type your Message" required></textarea>
@@ -474,6 +474,10 @@ $(function submitAnimation() {
       // Wait for 2.2 seconds so that the send button animation can be fully played before submitting the form
       setTimeout(() => {
         document.querySelector('form').submit();
+        // Show success message after form submission
+        setTimeout(() => {
+          swal("Success!", "Your message has been sent successfully!", "success");
+        }, 3000);
       }, 2200);
     }
   });
