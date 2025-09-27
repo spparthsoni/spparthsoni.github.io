@@ -473,11 +473,31 @@ $(function submitAnimation() {
       }, 1500);
       // Wait for 2.2 seconds so that the send button animation can be fully played before submitting the form
       setTimeout(() => {
-        document.querySelector('form').submit();
-        // Show success message after form submission
-        setTimeout(() => {
-          swal("Success!", "Your message has been sent successfully!", "success");
-        }, 3000);
+        // Submit form via AJAX to avoid URL redirect
+        const form = document.querySelector('form');
+        const formData = new FormData(form);
+        
+        fetch(form.action, {
+          method: 'POST',
+          body: formData
+        })
+        .then(response => {
+          if (response.ok) {
+            // Show success message
+            swal("Success!", "Your message has been sent successfully!", "success");
+            // Reset form
+            form.reset();
+            // Reset button animation
+            $("#lnch").removeClass("launching launched").text("Send");
+            $("#lnch_btn").removeClass("launching launched");
+          } else {
+            swal("Error!", "There was a problem sending your message. Please try again.", "error");
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          swal("Error!", "There was a problem sending your message. Please try again.", "error");
+        });
       }, 2200);
     }
   });
