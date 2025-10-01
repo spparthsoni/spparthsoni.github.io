@@ -84,13 +84,24 @@
   .social-icons {
     display: flex !important;
     justify-content: center !important;
+    align-items: center !important;
     gap: 15px !important;
     flex-wrap: wrap !important;
+    margin: 0 auto !important;
+    width: 100% !important;
   }
 
   .socialicon {
-    width: 50px !important;
-    height: 50px !important;
+    width: 60px !important;
+    height: 60px !important;
+    margin: 10px !important;
+  }
+  
+  /* Center the social icons container */
+  .center .social-icons {
+    display: flex !important;
+    justify-content: center !important;
+    padding: 0 !important;
   }
 }
 
