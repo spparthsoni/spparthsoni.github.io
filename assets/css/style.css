@@ -246,8 +246,8 @@ html {
   -webkit-appearance: none;
   position: relative;
   cursor: pointer;
-  width: 100px;
-  height: 40px;
+  width: 60px;
+  height: 28px;
   background-image: url(https://i.postimg.cc/857jHw2q/Screenshot-2020-04-16-at-1-07-06-PM.png);
   background-size: cover;
   border-radius: 50px;
@@ -261,8 +261,8 @@ html {
   position: absolute;
   top: 0;
   left: 0;
-  height: 40px;
-  width: 40px;
+  height: 28px;
+  width: 28px;
   background-color: navy;
   border-radius: 50px;
   transition: all 0.9s;
@@ -276,7 +276,7 @@ html {
 }
 
 .dark_toggler:checked:before {
-  transform: translate(150%);
+  transform: translate(115%);
   transition: all 0.9s;
   background-color: #bb86fc;
 }
