@@ -130,8 +130,34 @@ const translations = {
 // Language management
 class LanguageManager {
   constructor() {
-    this.currentLanguage = localStorage.getItem('preferredLanguage') || 'en';
+    this.currentLanguage = this.detectLanguage();
     this.init();
+  }
+
+  detectLanguage() {
+    // First check if user has previously selected a language
+    const savedLanguage = localStorage.getItem('preferredLanguage');
+    if (savedLanguage) {
+      return savedLanguage;
+    }
+
+    // Auto-detect from browser/system settings
+    const browserLang = navigator.language || navigator.userLanguage;
+    
+    // Extract language code (e.g., 'en-US' -> 'en', 'fr-FR' -> 'fr')
+    const langCode = browserLang.split('-')[0].toLowerCase();
+    
+    // Check if we support this language
+    const supportedLanguages = ['en', 'fr', 'ru'];
+    
+    if (supportedLanguages.includes(langCode)) {
+      console.log(`Auto-detected language: ${langCode} (${browserLang})`);
+      return langCode;
+    }
+    
+    // Default to English if language not supported
+    console.log(`Browser language ${browserLang} not supported, defaulting to English`);
+    return 'en';
   }
 
   init() {
