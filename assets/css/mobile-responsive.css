@@ -28,6 +28,7 @@
   .row {
     margin-left: -15px !important;
     margin-right: -15px !important;
+    flex-direction: column !important;
   }
 
   /* Column responsiveness */
@@ -95,6 +96,53 @@
 
 /* PROJECTS PAGE MOBILE FIXES */
 @media only screen and (max-width: 768px) {
+  /* Fix section height to prevent overlap */
+  .container section {
+    height: auto !important;
+    min-height: auto !important;
+  }
+
+  /* Stack illustration and text vertically */
+  .godown {
+    order: 1;
+    margin-bottom: 20px !important;
+    padding-top: 0 !important;
+  }
+
+  .dropdown {
+    order: 2;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  /* Make SVG illustration smaller on mobile */
+  .svgmate {
+    width: 80% !important;
+    height: auto !important;
+    max-height: 300px !important;
+    margin: 0 auto !important;
+    display: block !important;
+  }
+
+  /* Projects page main heading section */
+  .main-heading {
+    font-size: 1.5rem !important;
+    margin-bottom: 15px !important;
+  }
+
+  .my_projects {
+    display: inline-block !important;
+  }
+
+  /* Project description text */
+  .pre-heading {
+    font-size: 0.85rem !important;
+    line-height: 1.5 !important;
+    padding: 0 15px !important;
+    text-align: center !important;
+    margin-top: 10px !important;
+  }
+
   /* Project cards */
   .skill-card {
     width: 100% !important;
@@ -116,9 +164,10 @@
     margin-bottom: 20px !important;
   }
 
-  .pre-heading {
-    font-size: 0.9rem !important;
-    padding: 0 15px !important;
+  /* Project box spacing */
+  .project-box {
+    margin-top: 30px !important;
+    padding: 10px !important;
   }
 
   /* Project modal for mobile */
