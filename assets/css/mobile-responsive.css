@@ -103,9 +103,10 @@
     padding-bottom: 30px !important;
   }
 
-  /* Projects page container */
+  /* Projects page container - MORE TOP PADDING */
   .container.pt-5 {
-    padding-top: 1rem !important;
+    padding-top: 3rem !important;
+    margin-top: 60px !important;
   }
 
   /* Hide SVG illustration on mobile to prevent overlap */
@@ -117,42 +118,16 @@
   .dropdown {
     flex: 0 0 100% !important;
     max-width: 100% !important;
-    margin-top: 80px !important;
+    margin-top: 20px !important;
     padding: 20px !important;
     order: 1;
   }
-
-  /* Alternative: If you want to keep the SVG, use these instead */
-  /*
-  .godown {
-    order: 1;
-    margin-bottom: 30px !important;
-    padding-top: 20px !important;
-    flex: 0 0 100% !important;
-    max-width: 100% !important;
-  }
-
-  .dropdown {
-    order: 2;
-    margin-top: 20px !important;
-    padding-top: 20px !important;
-    flex: 0 0 100% !important;
-    max-width: 100% !important;
-  }
-
-  .svgmate {
-    width: 60% !important;
-    height: auto !important;
-    max-height: 200px !important;
-    margin: 0 auto !important;
-    display: block !important;
-  }
-  */
 
   /* Projects page main heading section */
   .main-heading {
     font-size: 1.5rem !important;
     margin-bottom: 15px !important;
+    margin-top: 20px !important;
   }
 
   .my_projects {
@@ -168,7 +143,7 @@
     margin-top: 10px !important;
   }
 
-  /* Project cards */
+  /* Project cards - PUSH DOWN FROM TOP */
   .skill-card {
     width: 100% !important;
     max-width: 350px !important;
@@ -189,10 +164,15 @@
     margin-bottom: 20px !important;
   }
 
-  /* Project box spacing */
+  /* Project box spacing - MORE TOP MARGIN */
   .project-box {
-    margin-top: 30px !important;
+    margin-top: 180px !important;
     padding: 10px !important;
+  }
+
+  /* Project cards container */
+  .projectcards {
+    margin-top: 30px !important;
   }
 
   /* Project modal for mobile */
