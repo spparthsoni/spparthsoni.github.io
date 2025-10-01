@@ -150,11 +150,16 @@ class LanguageManager {
   setupLanguageButtons() {
     // Wait for navbar to be loaded
     setTimeout(() => {
-      document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.addEventListener('click', (e) => {
+      document.querySelectorAll('.lang-option').forEach(option => {
+        option.addEventListener('click', (e) => {
           e.preventDefault();
-          const lang = btn.getAttribute('data-lang');
+          const lang = option.getAttribute('data-lang');
           this.setLanguage(lang);
+          // Close dropdown after selection
+          if (window.bootstrap) {
+            const dropdown = bootstrap.Dropdown.getInstance(document.getElementById('languageDropdown'));
+            if (dropdown) dropdown.hide();
+          }
         });
       });
       
@@ -198,17 +203,26 @@ class LanguageManager {
   }
 
   updateLanguageSwitcher() {
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-      const lang = btn.getAttribute('data-lang');
+    // Update dropdown items to show active state
+    document.querySelectorAll('.lang-option').forEach(option => {
+      const lang = option.getAttribute('data-lang');
       if (lang === this.currentLanguage) {
-        btn.style.opacity = '1';
-        btn.style.border = '2px solid #bb86fc';
-        btn.style.borderRadius = '4px';
+        option.classList.add('active');
       } else {
-        btn.style.opacity = '0.5';
-        btn.style.border = '2px solid transparent';
+        option.classList.remove('active');
       }
     });
+    
+    // Update the current flag icon in navbar
+    const flagIcon = document.getElementById('current-lang-flag');
+    if (flagIcon) {
+      const flagMap = {
+        'en': '🇬🇧',
+        'fr': '🇫🇷',
+        'ru': '🇷🇺'
+      };
+      flagIcon.textContent = flagMap[this.currentLanguage] || '🌐';
+    }
   }
 
   getCurrentLanguage() {

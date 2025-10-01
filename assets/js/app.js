@@ -28,21 +28,24 @@ let header = $(`
 
    <li class="nav-item nav-item-hover"><a class="nav-link" href="education.html" data-i18n="nav_education">Education</a></li>
    
-   <li class="nav-item">
-   <input type="checkbox" id="dark_toggler" class="dark_toggler" aria-label="Toggle Light Mode" onclick="toggle_light_mode()" checked>
+   <li class="nav-item dropdown">
+     <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+       <span id="current-lang-flag">🌐</span>
+     </a>
+     <div class="dropdown-menu dropdown-menu-right language-dropdown" aria-labelledby="languageDropdown">
+       <a class="dropdown-item lang-option" href="#" data-lang="en">
+         <img src="https://flagcdn.com/w20/gb.png" alt="EN" width="20"> English
+       </a>
+       <a class="dropdown-item lang-option" href="#" data-lang="fr">
+         <img src="https://flagcdn.com/w20/fr.png" alt="FR" width="20"> Français
+       </a>
+       <a class="dropdown-item lang-option" href="#" data-lang="ru">
+         <img src="https://flagcdn.com/w20/ru.png" alt="RU" width="20"> Русский
+       </a>
+     </div>
    </li>
    <li class="nav-item">
-     <div class="language-switcher">
-       <button class="lang-btn" data-lang="en" title="English">
-         <img src="https://flagcdn.com/w20/gb.png" alt="EN" width="20">
-       </button>
-       <button class="lang-btn" data-lang="fr" title="Français">
-         <img src="https://flagcdn.com/w20/fr.png" alt="FR" width="20">
-       </button>
-       <button class="lang-btn" data-lang="ru" title="Русский">
-         <img src="https://flagcdn.com/w20/ru.png" alt="RU" width="20">
-       </button>
-     </div>
+   <input type="checkbox" id="dark_toggler" class="dark_toggler" aria-label="Toggle Light Mode" onclick="toggle_light_mode()" checked>
    </li>
    <div class="bike">
    <svg xmlns="http://www.w3.org/2000/svg" viewBox="-80 0 650 400" preserveAspectRatio="xMinYMin meet">
