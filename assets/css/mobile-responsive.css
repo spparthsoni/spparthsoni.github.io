@@ -96,17 +96,22 @@
 
 /* PROJECTS PAGE MOBILE FIXES */
 @media only screen and (max-width: 768px) {
-  /* Fix section height to prevent overlap */
+  /* Remove fixed heights - make it responsive */
   .container section {
     height: auto !important;
     min-height: auto !important;
-    padding-bottom: 30px !important;
+    padding: 20px 0 !important;
   }
 
-  /* Projects page container - MORE TOP PADDING */
+  /* Projects page container - responsive padding */
   .container.pt-5 {
-    padding-top: 3rem !important;
-    margin-top: 60px !important;
+    padding-top: 80px !important;
+    margin-top: 0 !important;
+  }
+
+  /* Projects page specific: add proper spacing from navbar */
+  .px-3.pt-5 {
+    padding-top: 20px !important;
   }
 
   /* Hide SVG illustration on mobile to prevent overlap */
@@ -114,20 +119,20 @@
     display: none !important;
   }
 
-  /* Give text section full width */
+  /* Give text section full width and responsive spacing */
   .dropdown {
     flex: 0 0 100% !important;
     max-width: 100% !important;
-    margin-top: 20px !important;
-    padding: 20px !important;
+    margin-top: 0 !important;
+    padding: 20px 15px !important;
     order: 1;
   }
 
   /* Projects page main heading section */
   .main-heading {
     font-size: 1.5rem !important;
-    margin-bottom: 15px !important;
-    margin-top: 20px !important;
+    margin-bottom: 10px !important;
+    margin-top: 0 !important;
   }
 
   .my_projects {
@@ -136,14 +141,15 @@
 
   /* Project description text */
   .pre-heading {
-    font-size: 0.85rem !important;
-    line-height: 1.5 !important;
-    padding: 0 15px !important;
+    font-size: 0.9rem !important;
+    line-height: 1.6 !important;
+    padding: 0 10px !important;
     text-align: center !important;
     margin-top: 10px !important;
+    margin-bottom: 20px !important;
   }
 
-  /* Project cards - PUSH DOWN FROM TOP */
+  /* Project cards - responsive spacing */
   .skill-card {
     width: 100% !important;
     max-width: 350px !important;
@@ -151,7 +157,7 @@
   }
 
   .card .wrapper {
-    min-height: 250px !important;
+    min-height: 280px !important;
   }
 
   .card .title {
@@ -161,18 +167,20 @@
   /* Project heading */
   .projects_head {
     font-size: 1.5rem !important;
-    margin-bottom: 20px !important;
+    margin-bottom: 15px !important;
   }
 
-  /* Project box spacing - MORE TOP MARGIN */
+  /* Project box - responsive margin based on content */
   .project-box {
-    margin-top: 180px !important;
-    padding: 10px !important;
+    margin-top: 40px !important;
+    margin-bottom: 40px !important;
+    padding: 20px 10px !important;
   }
 
   /* Project cards container */
   .projectcards {
-    margin-top: 30px !important;
+    margin-top: 20px !important;
+    padding: 10px !important;
   }
 
   /* Project modal for mobile */
