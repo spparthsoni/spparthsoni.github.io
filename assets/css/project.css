@@ -517,13 +517,29 @@ ul {
 
 @media only screen and (max-width: 767px) {
   .project-box {
-    margin-top: 30px;
+    margin-top: 0;
+    padding-top: 40px;
+  }
+  
+  /* Ensure section doesn't have fixed height */
+  section {
+    height: auto !important;
+  }
+  
+  /* Add space after the description text */
+  .dropdown {
+    margin-bottom: 40px;
   }
 }
 
 @media only screen and (max-width: 450px) {
   .project-box {
-    margin-top: 30px;
+    margin-top: 0;
+    padding-top: 50px;
+  }
+  
+  .dropdown {
+    margin-bottom: 50px;
   }
 }
 
