@@ -517,8 +517,8 @@ ul {
 
 @media only screen and (max-width: 767px) {
   .project-box {
-    margin-top: 200px;
-    padding-top: 80px;
+    margin-top: 180px;
+    padding-top: 70px;
   }
   
   /* Ensure section doesn't have fixed height */
@@ -528,27 +528,27 @@ ul {
   
   /* Add space after the description text */
   .dropdown {
-    margin-bottom: 100px;
+    margin-bottom: 90px;
   }
   
   /* Extra spacing for project cards */
   .projectcards {
-    margin-top: 60px;
+    margin-top: 55px;
   }
 }
 
 @media only screen and (max-width: 450px) {
   .project-box {
-    margin-top: 250px;
-    padding-top: 100px;
+    margin-top: 225px;
+    padding-top: 90px;
   }
   
   .dropdown {
-    margin-bottom: 120px;
+    margin-bottom: 110px;
   }
   
   .projectcards {
-    margin-top: 80px;
+    margin-top: 70px;
   }
 }
 
