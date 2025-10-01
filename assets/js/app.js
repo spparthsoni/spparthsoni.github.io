@@ -135,15 +135,15 @@ let footer = $(`
         <div class="col-lg-6 col-md-12 mb-4 mb-md-0 form-comtainer">
           <div class="form-style-6">
              <div class="form-header">
-                <h6 class="display">Get in Touch</h6>
+                <h6 class="display" data-i18n="contact_title">Get in Touch</h6>
               </div>
                 <form name="form1" action="https://formcarry.com/s/cjjU36QgLb-" method="POST" accept-charset="UTF-8" >
-                  <input id="fc-generated-1-name" type="text" name="name" placeholder="Your Name" required/>
-                  <input id="fc-generated-1-email" type="email" name="email" placeholder="Email Address" required/>                  
-                  <textarea id="fc-generated-1-message" name="message" placeholder="Type your Message" required></textarea>
+                  <input id="fc-generated-1-name" type="text" name="name" placeholder="Your Name" data-i18n="contact_name_placeholder" required/>
+                  <input id="fc-generated-1-email" type="email" name="email" placeholder="Email Address" data-i18n="contact_email_placeholder" required/>                  
+                  <textarea id="fc-generated-1-message" name="message" placeholder="Type your Message" data-i18n="contact_message_placeholder" required></textarea>
               
                   <div id="main">
-                    <button id="lnch" type="button" value="Send" >Send</button>
+                    <button id="lnch" type="button" value="Send" data-i18n="contact_send_button">Send</button>
                     <div id="lnch_btn"><i class="fas fa-space-shuttle"></i></div>
                   </div>
                 </form>
@@ -446,29 +446,33 @@ $(function submitAnimation() {
 
   $("#lnch").on("click", function () {
 
+    // Get translations
+    const lang = languageManager ? languageManager.getCurrentLanguage() : 'en';
+    const trans = translations[lang];
+    
     // Check if the name field is empty or contains a number
     if (name.value == "" || (/\d/.test(name.value))) {
-      swal("Error !","Please enter a valid name !","error");
+      swal(trans.contact_error, trans.contact_error_name, "error");
       return;
     }
     // Check if the email field is empty or email is not valid ex: test@@email.com
     else if (emailAdress.value == "" || !(emailPattern.test(emailAdress.value))) {
-      swal("Error !","Please enter a valid email !","error");
+      swal(trans.contact_error, trans.contact_error_email, "error");
       return;
     }
     // Check if the message field is empty
     else if (text.value == "") {
-      swal("Error !","Please enter a valid message !","error");
+      swal(trans.contact_error, trans.contact_error_message, "error");
       return;
     }
     else {
 
       setTimeout(function () {
-        $("#lnch").addClass("launching").text("Sending");
+        $("#lnch").addClass("launching").text(trans.contact_sending);
         $("#lnch_btn").addClass("launching");
       }, 0);
       setTimeout(function () {
-        $("#lnch").addClass("launched").text("SENT");
+        $("#lnch").addClass("launched").text(trans.contact_sent);
         $("#lnch_btn").addClass("launched");
       }, 1500);
       // Wait for 2.2 seconds so that the send button animation can be fully played before submitting the form
@@ -484,24 +488,24 @@ $(function submitAnimation() {
         .then(response => {
           if (response.ok) {
             // Show success message
-            swal("Success!", "Your message has been sent successfully!", "success");
+            swal(trans.contact_success, trans.contact_success_msg, "success");
             // Reset form
             form.reset();
             // Reset button animation
-            $("#lnch").removeClass("launching launched").text("Send");
+            $("#lnch").removeClass("launching launched").text(trans.contact_send_button);
             $("#lnch_btn").removeClass("launching launched");
           } else {
-            swal("Error!", "There was a problem sending your message. Please try again.", "error");
+            swal(trans.contact_error, trans.contact_error_msg, "error");
             // Reset button animation
-            $("#lnch").removeClass("launching launched").text("Send");
+            $("#lnch").removeClass("launching launched").text(trans.contact_send_button);
             $("#lnch_btn").removeClass("launching launched");
           }
         })
         .catch(error => {
           console.error('Error:', error);
-          swal("Error!", "There was a problem sending your message. Please try again.", "error");
+          swal(trans.contact_error, trans.contact_error_msg, "error");
           // Reset button animation
-          $("#lnch").removeClass("launching launched").text("Send");
+          $("#lnch").removeClass("launching launched").text(trans.contact_send_button);
           $("#lnch_btn").removeClass("launching launched");
         });
       }, 2200);
