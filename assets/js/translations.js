@@ -138,13 +138,29 @@ class LanguageManager {
     // Set initial language
     this.setLanguage(this.currentLanguage);
     
-    // Add language switcher to navbar
-    this.addLanguageSwitcher();
+    // Add click handlers to language buttons
+    this.setupLanguageButtons();
     
     // Listen for language change events
     document.addEventListener('languageChanged', (e) => {
       this.setLanguage(e.detail.language);
     });
+  }
+
+  setupLanguageButtons() {
+    // Wait for navbar to be loaded
+    setTimeout(() => {
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const lang = btn.getAttribute('data-lang');
+          this.setLanguage(lang);
+        });
+      });
+      
+      // Set initial active state
+      this.updateLanguageSwitcher();
+    }, 100);
   }
 
   setLanguage(lang) {
@@ -179,44 +195,6 @@ class LanguageManager {
         }
       }
     });
-  }
-
-  addLanguageSwitcher() {
-    // Check if navbar exists
-    const navbar = document.querySelector('.navbar');
-    if (!navbar) return;
-
-    // Create language switcher HTML
-    const languageSwitcher = `
-      <div class="language-switcher" style="margin-left: auto; display: flex; gap: 10px; align-items: center;">
-        <button class="lang-btn" data-lang="en" title="English">
-          <img src="https://flagcdn.com/w20/gb.png" alt="English" width="20">
-        </button>
-        <button class="lang-btn" data-lang="fr" title="Français">
-          <img src="https://flagcdn.com/w20/fr.png" alt="Français" width="20">
-        </button>
-        <button class="lang-btn" data-lang="ru" title="Русский">
-          <img src="https://flagcdn.com/w20/ru.png" alt="Русский" width="20">
-        </button>
-      </div>
-    `;
-
-    // Add to navbar
-    const navbarNav = navbar.querySelector('.navbar-nav') || navbar.querySelector('ul');
-    if (navbarNav && navbarNav.parentElement) {
-      const switcherDiv = document.createElement('div');
-      switcherDiv.innerHTML = languageSwitcher;
-      navbarNav.parentElement.appendChild(switcherDiv.firstElementChild);
-      
-      // Add click handlers
-      document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-          e.preventDefault();
-          const lang = btn.getAttribute('data-lang');
-          this.setLanguage(lang);
-        });
-      });
-    }
   }
 
   updateLanguageSwitcher() {

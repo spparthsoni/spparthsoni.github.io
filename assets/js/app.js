@@ -22,14 +22,27 @@ let header = $(`
 
 <div class="collapse navbar-collapse " id="navbarSupportedContent">
   <ul class="navbar-nav ml-auto" id = "navbar-content">
-   <li class="nav-item nav-item-hover"><a class="nav-link" href="index.html">Home</a></li>
-   <li class="nav-item nav-item-hover"><a class="nav-link" href="experience.html">Experience</a></li>
-   <li class="nav-item nav-item-hover"><a class="nav-link" href="projects.html">Projects</a></li>
+   <li class="nav-item nav-item-hover"><a class="nav-link" href="index.html" data-i18n="nav_home">Home</a></li>
+   <li class="nav-item nav-item-hover"><a class="nav-link" href="experience.html" data-i18n="nav_experience">Experience</a></li>
+   <li class="nav-item nav-item-hover"><a class="nav-link" href="projects.html" data-i18n="nav_projects">Projects</a></li>
 
-   <li class="nav-item nav-item-hover"><a class="nav-link" href="education.html">Education</a></li>
+   <li class="nav-item nav-item-hover"><a class="nav-link" href="education.html" data-i18n="nav_education">Education</a></li>
    
    <li class="nav-item">
    <input type="checkbox" id="dark_toggler" class="dark_toggler" aria-label="Toggle Light Mode" onclick="toggle_light_mode()" checked>
+   </li>
+   <li class="nav-item">
+     <div class="language-switcher">
+       <button class="lang-btn" data-lang="en" title="English">
+         <img src="https://flagcdn.com/w20/gb.png" alt="EN" width="20">
+       </button>
+       <button class="lang-btn" data-lang="fr" title="Français">
+         <img src="https://flagcdn.com/w20/fr.png" alt="FR" width="20">
+       </button>
+       <button class="lang-btn" data-lang="ru" title="Русский">
+         <img src="https://flagcdn.com/w20/ru.png" alt="RU" width="20">
+       </button>
+     </div>
    </li>
    <div class="bike">
    <svg xmlns="http://www.w3.org/2000/svg" viewBox="-80 0 650 400" preserveAspectRatio="xMinYMin meet">
