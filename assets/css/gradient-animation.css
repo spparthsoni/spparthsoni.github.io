@@ -1,0 +1,104 @@
+/* Professional Gradient Background Animation */
+/* Clean, minimal, and sophisticated */
+
+.gradient-background {
+  background: linear-gradient(-45deg, #f6f6f6, #e8e8f8, #f0e8ff, #fafafa);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Dark mode gradient */
+html[light-mode="dark"] .gradient-background,
+body[light-mode="dark"] .gradient-background {
+  background: linear-gradient(-45deg, #1a1a1a, #2a1a3a, #1a1a2a, #222222);
+  background-size: 400% 400%;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Subtle overlay pattern */
+.gradient-background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 35px,
+      rgba(187, 134, 252, 0.03) 35px,
+      rgba(187, 134, 252, 0.03) 70px
+    );
+  animation: patternMove 20s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes patternMove {
+  0% {
+    transform: translateX(0) translateY(0);
+  }
+  100% {
+    transform: translateX(70px) translateY(70px);
+  }
+}
+
+/* Floating orbs for depth */
+.gradient-background::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle at 20% 50%,
+    rgba(187, 134, 252, 0.1) 0%,
+    transparent 50%
+  ),
+  radial-gradient(
+    circle at 80% 80%,
+    rgba(106, 0, 187, 0.08) 0%,
+    transparent 50%
+  ),
+  radial-gradient(
+    circle at 40% 20%,
+    rgba(187, 134, 252, 0.06) 0%,
+    transparent 50%
+  );
+  animation: orbFloat 25s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes orbFloat {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  33% {
+    transform: translate(30px, -30px) rotate(120deg);
+  }
+  66% {
+    transform: translate(-30px, 30px) rotate(240deg);
+  }
+}
+
+/* Ensure content is on top */
+.gradient-background ~ * {
+  position: relative;
+  z-index: 1;
+}
+
